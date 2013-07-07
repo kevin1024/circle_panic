@@ -30,7 +30,7 @@ Here is an example of what data is available for each row:
     branch: 'master',
     status: 'success',
     green: true,
-    subject: 'removed county, added subdivision' } ]
+    subject: 'removed county, added subdivision' }
 ```
 
 ## TODO

@@ -5,7 +5,7 @@ Display circleci build status on your Panic status board
 
 ![screenshot](http://i.imgur.com/tpwXTDF.png)
 
-## Installation:
+## Installation
 
 1. clone the repo
 2. `npm install`

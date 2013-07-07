@@ -1,0 +1,13 @@
+<table>
+  {{#builds}}
+  <tr>
+    <td>
+      {{#green}}<img src="http://www.clker.com/cliparts/2/k/n/l/C/Q/transparent-green-checkmark-hi.png">{{/green}}
+      {{^green}}<img src="http://images.wikia.com/dotd/images/a/a9/600px-Red_x.svg.png">{{/green}}
+      {{ project }}:{{ branch}}
+    </td>
+    <td>{{ subject }}</td>
+    <td>{{ user }}</td>
+  </tr>
+  {{/builds}}
+</table>

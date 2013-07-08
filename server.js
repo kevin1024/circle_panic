@@ -62,5 +62,5 @@ http.createServer(function(req, res) {
       res.end(output);
     });
   });
-  }).listen(nconf.get('port'), nconf.get('bind_address'));
+  }).listen(nconf.get('PORT'), nconf.get('bind_address'));
 

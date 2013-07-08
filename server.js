@@ -6,7 +6,7 @@ var Mustache = require('mustache');
 var nconf = require('nconf');
 var static = require('node-static');
 
-nconf.file({ file: 'settings.json'});
+nconf.file({ file: 'settings.json'}).env();
 
 var get_html = function(builds, cb) {
   builds = parse_build_data(builds);

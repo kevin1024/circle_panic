@@ -5,9 +5,12 @@
   "main": "server.js",
   "dependencies": {
     "mustache": "~0.7.2",
-    "nconf": "~0.6.7"
+    "nconf": "~0.6.7",
+    "node-static": "~0.7.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jshint": "~2.1.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

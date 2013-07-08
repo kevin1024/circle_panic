@@ -2,17 +2,16 @@ var http = require('http');
 var url = require('url');
 var https = require('https');
 var fs = require('fs');
-
 var Mustache = require('mustache');
 var nconf = require('nconf');
+var static = require('node-static');
 
-nconf.file({ file: 'settings.json'})
+nconf.file({ file: 'settings.json'});
 
 var get_html = function(builds, cb) {
   builds = parse_build_data(builds);
   fs.readFile('template.html', function(err, data) {
     var template = data.toString();
-    console.log(builds);
     cb(Mustache.render(template, {builds: builds}));
   });
 };
@@ -47,12 +46,21 @@ var get_build_data = function(cb) {
   });
 };
 
+var file = new(static.Server)('./static');
+
 http.createServer(function(req, res) {
+  //serve static files if path starts with /static
+  if (req.url.indexOf('/static') === 0) {
+    req.url = req.url.substring(7, req.url.length);
+    file.serve(req, res);
+    return;
+  }
+  //else, serve up api request
   res.writeHead(200, {'Content-Type': 'text/html'});
   get_build_data(function(data) {
     get_html(data, function(output) {
       res.end(output);
     });
   });
-}).listen(nconf.get('port'), nconf.get('bind_address'));
+  }).listen(nconf.get('port'), nconf.get('bind_address'));
 

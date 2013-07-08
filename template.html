@@ -1,6 +1,6 @@
 <table>
   {{#builds}}
-  <tr>
+  <tr {{^green}}style="background-color:red"{{/green}}>
     <td>
       {{#green}}<img src="/static/check.png" style="verical-align:middle">{{/green}}
       {{^green}}<img src="/static/x.png" style="vertical-align:middle">{{/green}}
